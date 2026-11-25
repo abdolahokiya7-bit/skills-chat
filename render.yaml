@@ -1,0 +1,13 @@
+# Render Blueprint: deploys the website from this repo.
+# In the Render dashboard, set MODEL_URL and MODEL_TOKEN (the model server address and token).
+services:
+  - type: web
+    name: skills-chat
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/status
+    envVars:
+      - key: MODEL_URL
+        sync: false
+      - key: MODEL_TOKEN
+        sync: false
